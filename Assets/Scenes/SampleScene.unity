@@ -367,6 +367,50 @@ PrefabInstance:
       propertyPath: sensitivity
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 404493047, guid: f61f1866022db014c8cd6dfb5973901b, type: 3}
+      propertyPath: playerrotation.m_SingletonActionBindings.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 404493047, guid: f61f1866022db014c8cd6dfb5973901b, type: 3}
+      propertyPath: playerrotation.m_SingletonActionBindings.Array.data[0].m_Id
+      value: a4ec1305-59a9-4dab-bb2c-00bf33a26e5e
+      objectReference: {fileID: 0}
+    - target: {fileID: 404493047, guid: f61f1866022db014c8cd6dfb5973901b, type: 3}
+      propertyPath: playerrotation.m_SingletonActionBindings.Array.data[1].m_Id
+      value: b73745a8-2f7b-4526-a146-5d65a18728f5
+      objectReference: {fileID: 0}
+    - target: {fileID: 404493047, guid: f61f1866022db014c8cd6dfb5973901b, type: 3}
+      propertyPath: playerrotation.m_SingletonActionBindings.Array.data[2].m_Id
+      value: b8799a3b-e6f3-44e0-ac06-7ec9251d45dd
+      objectReference: {fileID: 0}
+    - target: {fileID: 404493047, guid: f61f1866022db014c8cd6dfb5973901b, type: 3}
+      propertyPath: playerrotation.m_SingletonActionBindings.Array.data[3].m_Id
+      value: 3276a259-82c8-41b5-99df-de4af4c1a129
+      objectReference: {fileID: 0}
+    - target: {fileID: 404493047, guid: f61f1866022db014c8cd6dfb5973901b, type: 3}
+      propertyPath: playerrotation.m_SingletonActionBindings.Array.data[4].m_Id
+      value: 4eaebd07-902f-4e7c-9f68-27fe76b799e7
+      objectReference: {fileID: 0}
+    - target: {fileID: 404493047, guid: f61f1866022db014c8cd6dfb5973901b, type: 3}
+      propertyPath: playerrotation.m_SingletonActionBindings.Array.data[0].m_Name
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 404493047, guid: f61f1866022db014c8cd6dfb5973901b, type: 3}
+      propertyPath: playerrotation.m_SingletonActionBindings.Array.data[0].m_Path
+      value: <Mouse>/delta
+      objectReference: {fileID: 0}
+    - target: {fileID: 404493047, guid: f61f1866022db014c8cd6dfb5973901b, type: 3}
+      propertyPath: playerrotation.m_SingletonActionBindings.Array.data[1].m_Path
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 404493047, guid: f61f1866022db014c8cd6dfb5973901b, type: 3}
+      propertyPath: playerrotation.m_SingletonActionBindings.Array.data[2].m_Path
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 404493047, guid: f61f1866022db014c8cd6dfb5973901b, type: 3}
+      propertyPath: playerrotation.m_SingletonActionBindings.Array.data[0].m_Flags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5840668813690659810, guid: f61f1866022db014c8cd6dfb5973901b, type: 3}
       propertyPath: m_RootOrder
       value: 1

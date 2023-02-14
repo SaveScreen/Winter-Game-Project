@@ -8,10 +8,12 @@ public class PlayerScript : MonoBehaviour
     public float speed;
     public float sensitivity;
     public InputAction playercontroller;
+    public InputAction playerrotation;
     private Rigidbody rb;
     public Transform orientation;
     private Vector3 move;
-    private Vector3 look;
+    private Vector2 look;
+    private Vector2 newlook;
     private float lookx;
     private float looky;
     private float rotationx;
@@ -29,30 +31,41 @@ public class PlayerScript : MonoBehaviour
 
     void OnEnable() {
         playercontroller.Enable();
+        playerrotation.Enable();
     }
 
     void OnDisable() {
         playercontroller.Disable();
+        playerrotation.Disable();
     }
     // Update is called once per frame
     void Update()
     {
         move = playercontroller.ReadValue<Vector3>();
-        lookx = Input.GetAxis("Mouse X");
-        looky = Input.GetAxis("Mouse Y");
+        look = playerrotation.ReadValue<Vector2>();
 
-        rotationx -= looky;
-        rotationy += lookx; 
+        
+        //lookx = Input.GetAxis("Mouse X");
+        //looky = Input.GetAxis("Mouse Y");
 
-        look = new Vector3(rotationx * sensitivity, rotationy * sensitivity, 0.0f);
-        transform.rotation = Quaternion.Euler(look.x,look.y,0.0f);
-        orientation.rotation = Quaternion.Euler(0.0f,looky,0.0f);
+        //rotationx -= looky;
+        //rotationy += lookx; 
+
+        newlook = new Vector3(look.x * sensitivity, look.y * sensitivity, 0.0f);
+        transform.rotation = Quaternion.Euler(newlook.x,newlook.y,0.0f);
+        orientation.rotation = Quaternion.Euler(0.0f,newlook.y,0.0f);
         
         
     }
 
     void FixedUpdate() {
+        Debug.Log(look);
+        Debug.Log(move);
         rb.velocity = new Vector3(move.x * speed, 0.0f, move.z * speed);
+        /*
+        transform.rotation = Quaternion.Euler(look.x, look.y, 0.0f);
+        orientation.rotation = Quaternion.Euler(0.0f, look.y, 0.0f);
+        */
         
     }
 }

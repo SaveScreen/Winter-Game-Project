@@ -128,8 +128,8 @@ GameObject:
   - component: {fileID: 5840668813690659836}
   - component: {fileID: 5840668813690659809}
   - component: {fileID: 5840668813690659837}
-  - component: {fileID: 5840668813690659838}
   - component: {fileID: 404493047}
+  - component: {fileID: 24098530}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -152,7 +152,7 @@ Transform:
   - {fileID: 5840668813686686951}
   - {fileID: 1236877719914863313}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &5840668813690659811
 MeshFilter:
@@ -248,22 +248,6 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!54 &5840668813690659838
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5840668813690659832}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 64
-  m_CollisionDetection: 0
 --- !u!114 &404493047
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -277,7 +261,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  sensitivity: 10
+  sensitivity: -100
   playercontroller:
     m_Name: Playercontroller
     m_Type: 0
@@ -286,8 +270,8 @@ MonoBehaviour:
     m_Processors: 
     m_Interactions: 
     m_SingletonActionBindings:
-    - m_Name: WASD
-      m_Id: 0c47731c-3201-4827-91e9-06697abbfb14
+    - m_Name: 3D Vector
+      m_Id: 76769a10-cef8-45ad-a001-28999a8cbcbe
       m_Path: 3DVector
       m_Interactions: 
       m_Processors: 
@@ -295,7 +279,7 @@ MonoBehaviour:
       m_Action: Playercontroller
       m_Flags: 4
     - m_Name: up
-      m_Id: 375a91d4-34d8-4828-b220-a8621417b290
+      m_Id: b6bb38a1-6449-45d2-98ca-2090dabecdf3
       m_Path: 
       m_Interactions: 
       m_Processors: 
@@ -303,7 +287,7 @@ MonoBehaviour:
       m_Action: Playercontroller
       m_Flags: 8
     - m_Name: down
-      m_Id: 32df8ffb-8467-4fd0-9291-af865b6e85ab
+      m_Id: ead28476-316c-4142-b769-50e569824d5a
       m_Path: 
       m_Interactions: 
       m_Processors: 
@@ -311,64 +295,32 @@ MonoBehaviour:
       m_Action: Playercontroller
       m_Flags: 8
     - m_Name: left
-      m_Id: 42af974c-51a1-4653-8032-6db338b5219c
+      m_Id: fe30339b-6bcc-43f9-8dd8-f517221c5393
       m_Path: <Keyboard>/a
       m_Interactions: 
       m_Processors: 
       m_Groups: 
       m_Action: Playercontroller
       m_Flags: 8
-    - m_Name: left
-      m_Id: 80dc4fe0-e5da-4637-8ce5-6851410fa6ab
-      m_Path: <Gamepad>/leftStick/left
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Playercontroller
-      m_Flags: 8
     - m_Name: right
-      m_Id: e3905944-a1c3-4753-be9d-6b5f41bfe1ef
+      m_Id: 62b0d6b8-6b79-4310-96a2-ff4842d6bc30
       m_Path: <Keyboard>/d
       m_Interactions: 
       m_Processors: 
       m_Groups: 
       m_Action: Playercontroller
       m_Flags: 8
-    - m_Name: right
-      m_Id: 9920edea-e39b-4953-8b25-97e261a24df4
-      m_Path: <Gamepad>/dpad/right
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Playercontroller
-      m_Flags: 8
     - m_Name: forward
-      m_Id: 0808924f-f701-4327-9c71-5a9cf4acba7d
+      m_Id: 7563d437-f238-4452-a8df-ebec1d9d3caf
       m_Path: <Keyboard>/w
       m_Interactions: 
       m_Processors: 
       m_Groups: 
       m_Action: Playercontroller
       m_Flags: 8
-    - m_Name: forward
-      m_Id: c8f0b439-3e57-4987-a650-510c34e093aa
-      m_Path: <Gamepad>/leftStick/up
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Playercontroller
-      m_Flags: 8
     - m_Name: backward
-      m_Id: fba8f0a5-1010-4131-b0cf-222516bf2c1b
+      m_Id: ad6a369a-27c0-4ee0-96d6-4e9639071e0f
       m_Path: <Keyboard>/s
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Playercontroller
-      m_Flags: 8
-    - m_Name: backward
-      m_Id: 930fbcad-a255-4e58-8ec2-d25efed36eed
-      m_Path: <Gamepad>/leftStick/down
       m_Interactions: 
       m_Processors: 
       m_Groups: 
@@ -383,45 +335,31 @@ MonoBehaviour:
     m_Processors: 
     m_Interactions: 
     m_SingletonActionBindings:
-    - m_Name: 2D Vector
-      m_Id: 95fe5890-a9d5-48fb-a321-12d2642c7948
-      m_Path: 2DVector
+    - m_Name: 
+      m_Id: a4ec1305-59a9-4dab-bb2c-00bf33a26e5e
+      m_Path: <Mouse>/delta
       m_Interactions: 
       m_Processors: 
       m_Groups: 
       m_Action: Playerrotation
-      m_Flags: 4
-    - m_Name: up
-      m_Id: 25dc46f0-d562-48e9-9f1f-ed4dd86b5bc6
-      m_Path: <Keyboard>/leftArrow
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Playerrotation
-      m_Flags: 8
-    - m_Name: down
-      m_Id: b074c048-dac9-413c-a886-3947669c8fd3
-      m_Path: <Keyboard>/rightArrow
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Playerrotation
-      m_Flags: 8
-    - m_Name: left
-      m_Id: 554a1e79-1f7a-4987-b366-d3afd02846d8
-      m_Path: 
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Playerrotation
-      m_Flags: 8
-    - m_Name: right
-      m_Id: 5eb7ffce-99de-4451-9c4d-5106be8ae446
-      m_Path: 
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Playerrotation
-      m_Flags: 8
+      m_Flags: 0
     m_Flags: 0
-  orientation: {fileID: 0}
+  orientation: {fileID: 1236877719914863313}
+--- !u!143 &24098530
+CharacterController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5840668813690659832}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Height: 2
+  m_Radius: 0.5
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 0, z: 0}

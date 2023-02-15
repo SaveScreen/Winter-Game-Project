@@ -66,4 +66,9 @@ public class PlayerScript : MonoBehaviour
         orientation.transform.Rotate(Vector3.up*lookx);
 
     }
+    
+    public void ChangeHealth(int amount)
+    {
+
+    }
 }

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1086,7 +1086,7 @@ GameObject:
   - component: {fileID: 758516071}
   - component: {fileID: 758516070}
   - component: {fileID: 758516069}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Plane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1299,12 +1299,12 @@ GameObject:
   - component: {fileID: 855800249}
   - component: {fileID: 855800248}
   - component: {fileID: 855800247}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!65 &855800247
 BoxCollider:
@@ -1517,7 +1517,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1013324791
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1614,7 +1614,7 @@ GameObject:
   - component: {fileID: 1102698995}
   - component: {fileID: 1102698994}
   - component: {fileID: 1102698993}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Plane (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1693,8 +1693,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1102698992}
   m_LocalRotation: {x: 0.122787856, y: -0.6963643, z: -0.122787856, w: 0.6963643}
-  m_LocalPosition: {x: -31, y: 4.87, z: 8}
-  m_LocalScale: {x: 3, y: 1, z: 1}
+  m_LocalPosition: {x: -21.28, y: 4.87, z: 8}
+  m_LocalScale: {x: 3, y: 1, z: 2.8971686}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -2009,12 +2009,12 @@ GameObject:
   - component: {fileID: 1360206190}
   - component: {fileID: 1360206189}
   - component: {fileID: 1360206188}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Plane (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!64 &1360206188
 MeshCollider:
@@ -2088,8 +2088,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1360206187}
   m_LocalRotation: {x: 0, y: 0, z: -0.17364825, w: 0.9848078}
-  m_LocalPosition: {x: 8.09, y: 4.87, z: -31}
-  m_LocalScale: {x: 3, y: 1, z: 1}
+  m_LocalPosition: {x: 8.09, y: 4.87, z: -21.03}
+  m_LocalScale: {x: 3, y: 1, z: 2.9488}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -2793,6 +2793,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 3528841911637853411, guid: 19f54316782d2054ab2e03623a3d4dcb, type: 3}
+      propertyPath: m_Speed
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 19f54316782d2054ab2e03623a3d4dcb, type: 3}
@@ -2804,13 +2808,9 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2081086799266389771, guid: f61f1866022db014c8cd6dfb5973901b, type: 3}
-      propertyPath: m_NavMeshLayer
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5840668813686686946, guid: f61f1866022db014c8cd6dfb5973901b, type: 3}
-      propertyPath: m_NavMeshLayer
-      value: 3
+    - target: {fileID: 1409314821, guid: f61f1866022db014c8cd6dfb5973901b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 5840668813690659810, guid: f61f1866022db014c8cd6dfb5973901b, type: 3}
       propertyPath: m_RootOrder
@@ -2826,7 +2826,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5840668813690659810, guid: f61f1866022db014c8cd6dfb5973901b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -22.5
+      value: -4.38
       objectReference: {fileID: 0}
     - target: {fileID: 5840668813690659810, guid: f61f1866022db014c8cd6dfb5973901b, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2859,10 +2859,6 @@ PrefabInstance:
     - target: {fileID: 5840668813690659832, guid: f61f1866022db014c8cd6dfb5973901b, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 5840668813690659832, guid: f61f1866022db014c8cd6dfb5973901b, type: 3}
-      propertyPath: m_NavMeshLayer
-      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []

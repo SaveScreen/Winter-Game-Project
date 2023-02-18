@@ -25,17 +25,24 @@ public class PlayerScript : MonoBehaviour
     private float looky;
     private float rotationx;
     private float rotationy;
+    public GameObject key;
+    private KeyScript k;
+    private float pickuprange;
+    public Transform keyholdposition;
  
 
     // Start is called before the first frame update
     void Start()
     {
         character = gameObject.GetComponent<CharacterController>();
+        //key = GameObject.FindWithTag("Key");
+        //k = key.GetComponent<KeyScript>();
         //puts cursor in center of screen and so you cant see it
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         gravity = -9.81f;
         grounddistance = 0.2f;
+        pickuprange = 3.0f;
     }
 
     void OnEnable() {
@@ -59,7 +66,15 @@ public class PlayerScript : MonoBehaviour
         if (grounded && velocity.y < 0) {
             velocity.y = -2.0f;
         }
-    
+
+        if (Input.GetKeyDown(KeyCode.Escape)) {
+            Application.Quit();
+        }
+
+        if (Input.GetKeyDown(KeyCode.E)) {
+            StartPickUp();
+        }
+       
     }
 
     void FixedUpdate() {
@@ -83,5 +98,22 @@ public class PlayerScript : MonoBehaviour
         orientation.transform.Rotate(Vector3.up*lookx);
 
     }
+
+    void StartPickUp() {
+
+        RaycastHit hit;
+        if (Physics.Raycast(gameObject.transform.position, Vector3.forward, out hit, pickuprange)) {
+
+            k = hit.transform.GetComponent<KeyScript>();
+            if (k != null) {
+                PickUp();
+            }
+        }
+    }
+
+   void PickUp() {
+        //gameObject.transform.SetParent(keyholdposition);
+        //key.transform.position = 
+   }
 
 }

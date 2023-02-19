@@ -48,7 +48,11 @@ MonoBehaviour:
   m_MinSize: {x: 503, y: 321}
   m_MaxSize: {x: 16192, y: 12117}
   vertical: 0
+<<<<<<< HEAD
   controlID: 89
+=======
+  controlID: 93
+>>>>>>> 977ff6fcb31ba5fb146ef189a58d95b2702284db
 --- !u!114 &3
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -317,22 +321,36 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
+<<<<<<< HEAD
     - Assets/Scenes/SampleScene
+=======
+    - Assets/Scenes
+>>>>>>> 977ff6fcb31ba5fb146ef189a58d95b2702284db
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
+<<<<<<< HEAD
   - Assets/Scenes/SampleScene
+=======
+  - Assets/Scenes
+>>>>>>> 977ff6fcb31ba5fb146ef189a58d95b2702284db
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\gaben\Desktop\Unity Projects\Winter Project
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
+<<<<<<< HEAD
     m_SelectedIDs: 305c0000
     m_LastClickedID: 23600
     m_ExpandedIDs: 00000000e45b0000e65b0000e85b000000ca9a3b
+=======
+    m_SelectedIDs: 245c0000
+    m_LastClickedID: 23588
+    m_ExpandedIDs: 00000000e25b000000ca9a3b
+>>>>>>> 977ff6fcb31ba5fb146ef189a58d95b2702284db
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -360,7 +378,11 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
+<<<<<<< HEAD
     m_ExpandedIDs: 00000000e45b0000e65b0000e85b0000
+=======
+    m_ExpandedIDs: 00000000e25b0000
+>>>>>>> 977ff6fcb31ba5fb146ef189a58d95b2702284db
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -490,7 +512,11 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
+<<<<<<< HEAD
       m_ExpandedIDs: 1afaffff32fbffff
+=======
+      m_ExpandedIDs: 32fbffff
+>>>>>>> 977ff6fcb31ba5fb146ef189a58d95b2702284db
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -824,9 +850,15 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: -0.08717229, y: 0.89959055, z: -0.21045254, w: -0.3726226}
   m_Size:
+<<<<<<< HEAD
     m_Target: 15.310895
     speed: 2
     m_Value: 14.651574
+=======
+    m_Target: 10
+    speed: 2
+    m_Value: 10
+>>>>>>> 977ff6fcb31ba5fb146ef189a58d95b2702284db
   m_Ortho:
     m_Target: 0
     speed: 2

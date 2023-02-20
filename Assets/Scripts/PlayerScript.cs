@@ -42,7 +42,7 @@ public class PlayerScript : MonoBehaviour
         Cursor.visible = false;
         gravity = -9.81f;
         grounddistance = 0.2f;
-        pickuprange = 3.0f;
+        pickuprange = 5.0f;
     }
 
     void OnEnable() {
@@ -73,6 +73,7 @@ public class PlayerScript : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.E)) {
             StartPickUp();
+            
         }
        
     }
@@ -100,20 +101,22 @@ public class PlayerScript : MonoBehaviour
     }
 
     void StartPickUp() {
-
+        Debug.Log("Pressed E");
         RaycastHit hit;
-        if (Physics.Raycast(gameObject.transform.position, Vector3.forward, out hit, pickuprange)) {
-
+        if (Physics.Raycast(transform.position, Vector3.forward, out hit, pickuprange)) {
+            
+            Debug.DrawRay(transform.position, Vector3.forward, Color.yellow);
             k = hit.transform.GetComponent<KeyScript>();
             if (k != null) {
                 PickUp();
+                Debug.Log("HIT!");
             }
         }
     }
 
    void PickUp() {
-        //gameObject.transform.SetParent(keyholdposition);
-        //key.transform.position = 
+        key.transform.SetParent(keyholdposition);
+        
    }
 
 }

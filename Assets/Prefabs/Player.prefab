@@ -31,6 +31,37 @@ Transform:
   m_Father: {fileID: 5840668813690659810}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1914538391
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1914538395}
+  m_Layer: 0
+  m_Name: Keyhold
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1914538395
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1914538391}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.3259983, y: 0.21899998, z: 0.5810001}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5840668813690659810}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2081086799266389771
 GameObject:
   m_ObjectHideFlags: 0
@@ -184,6 +215,7 @@ Transform:
   - {fileID: 5840668813686686951}
   - {fileID: 1236877719914863313}
   - {fileID: 1409314821}
+  - {fileID: 1914538395}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -382,6 +414,8 @@ MonoBehaviour:
   groundmask:
     serializedVersion: 2
     m_Bits: 64
+  key: {fileID: 0}
+  keyholdposition: {fileID: 1914538395}
 --- !u!143 &24098530
 CharacterController:
   m_ObjectHideFlags: 0

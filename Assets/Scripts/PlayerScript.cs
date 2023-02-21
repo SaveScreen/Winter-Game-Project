@@ -42,7 +42,7 @@ public class PlayerScript : MonoBehaviour
         Cursor.visible = false;
         gravity = -9.81f;
         grounddistance = 0.2f;
-        pickuprange = 5.0f;
+        pickuprange = 10.0f;
     }
 
     void OnEnable() {
@@ -101,21 +101,26 @@ public class PlayerScript : MonoBehaviour
     }
 
     void StartPickUp() {
-        Debug.Log("Pressed E");
+        
         RaycastHit hit;
-        if (Physics.Raycast(transform.position, Vector3.forward, out hit, pickuprange)) {
+        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, pickuprange)) {
             
-            Debug.DrawRay(transform.position, Vector3.forward, Color.yellow);
-            k = hit.transform.GetComponent<KeyScript>();
+            Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward), Color.yellow);
+            k = hit.collider.GetComponent<KeyScript>();
             if (k != null) {
                 PickUp();
                 Debug.Log("HIT!");
             }
         }
+        else {
+            Debug.DrawRay(transform.position,transform.TransformDirection(Vector3.forward),Color.red);
+        }
     }
 
    void PickUp() {
         key.transform.SetParent(keyholdposition);
+        key.transform.SetPositionAndRotation(keyholdposition.transform.position, Quaternion.identity);
+        k.stopspinning = true;
         
    }
 

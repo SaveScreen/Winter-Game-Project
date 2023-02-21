@@ -119,7 +119,7 @@ public class PlayerScript : MonoBehaviour
 
    void PickUp() {
         key.transform.SetParent(keyholdposition);
-        key.transform.SetPositionAndRotation(keyholdposition.transform.position, Quaternion.identity);
+        key.transform.SetPositionAndRotation(keyholdposition.transform.position, Quaternion.Euler(90,0,0));
         k.stopspinning = true;
         
    }

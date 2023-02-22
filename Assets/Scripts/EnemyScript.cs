@@ -6,6 +6,8 @@ using UnityEngine.AI;
 public class EnemyScript : MonoBehaviour
 {
     public GameObject player;
+    public GameObject game;
+    private GameController gamecontroller;
     private PlayerScript p;
     private NavMeshAgent agent;
     public float speed;
@@ -14,19 +16,26 @@ public class EnemyScript : MonoBehaviour
     void Start()
     {
         agent = gameObject.GetComponent<NavMeshAgent>();
-        p = player.GetComponent<PlayerScript>();
+        gamecontroller = game.GetComponent<GameController>();
         //currentpos = gameObject.GetComponent<Transform>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        agent.destination = player.transform.position;
-        Vector3.MoveTowards(transform.position,agent.destination,speed * Time.deltaTime);
+        if (gamecontroller.gameover == false)
+        {
+            agent.destination = player.transform.position;
+            Vector3.MoveTowards(transform.position, agent.destination, speed * Time.deltaTime);
+        }
+       
     }
 
     void OnCollisionEnter(Collision other) {
-        if (player != null) {
+
+        p = other.gameObject.GetComponent<PlayerScript>();
+        if (p != null) {
+            gamecontroller.gameover = true;
             Debug.Log("Ouch!");
         }
     }

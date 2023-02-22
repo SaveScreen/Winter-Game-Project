@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class PlayerScript : MonoBehaviour
 {
@@ -13,7 +14,6 @@ public class PlayerScript : MonoBehaviour
     public Transform orientation;
     private Vector3 move;
     private Vector2 look;
-    private Vector2 newlook;
     private Vector3 movement;
     public Transform groundcheck;
     public LayerMask groundmask;
@@ -29,12 +29,19 @@ public class PlayerScript : MonoBehaviour
     private KeyScript k;
     private float pickuprange;
     public Transform keyholdposition;
- 
+    public Transform eyeline;
+    private bool gotkey;
+    public GameObject pressE;
+    public GameObject game;
+    private GameController gamecontroller;
+    public GameObject enemy;
+
 
     // Start is called before the first frame update
     void Start()
     {
         character = gameObject.GetComponent<CharacterController>();
+        gamecontroller = game.GetComponent<GameController>();
         //key = GameObject.FindWithTag("Key");
         //k = key.GetComponent<KeyScript>();
         //puts cursor in center of screen and so you cant see it
@@ -42,7 +49,10 @@ public class PlayerScript : MonoBehaviour
         Cursor.visible = false;
         gravity = -9.81f;
         grounddistance = 0.2f;
-        pickuprange = 10.0f;
+        pickuprange = 5.0f;
+        gotkey = false;
+        pressE.SetActive(false);
+        
     }
 
     void OnEnable() {
@@ -58,8 +68,18 @@ public class PlayerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        move = playercontroller.ReadValue<Vector3>();
-        Look();
+        if (gamecontroller.gameover == false)
+        {
+            move = playercontroller.ReadValue<Vector3>();
+            Look();
+        }
+        if (gamecontroller.gameover == true)
+        {
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+                gamecontroller.gameover = false;
+            }
+        }
 
 
         grounded = Physics.CheckSphere(groundcheck.position,grounddistance,groundmask);
@@ -72,9 +92,33 @@ public class PlayerScript : MonoBehaviour
         }
 
         if (Input.GetKeyDown(KeyCode.E)) {
-            StartPickUp();
-            
+            StartPickup();
+
         }
+
+        
+        if (gotkey == false)
+        {
+            //Debug raycasting test
+            Debug.DrawRay(eyeline.transform.position, eyeline.transform.TransformDirection(Vector3.forward), Color.yellow);
+            RaycastHit hit;
+            if (Physics.Raycast(eyeline.transform.position, eyeline.transform.TransformDirection(Vector3.forward), out hit, pickuprange))
+            {
+                k = hit.collider.GetComponent<KeyScript>();
+                if (k != null)
+                {
+                    Debug.DrawRay(eyeline.transform.position, eyeline.transform.TransformDirection(Vector3.forward), Color.red);
+                    pressE.SetActive(true);
+
+                }
+                else
+                {
+                    pressE.SetActive(false);
+                }
+
+            }
+        }
+        
        
     }
 
@@ -100,28 +144,26 @@ public class PlayerScript : MonoBehaviour
 
     }
 
-    void StartPickUp() {
-        
+    void StartPickup()
+    {
         RaycastHit hit;
-        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, pickuprange)) {
-            
-            Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward), Color.yellow);
+        if (Physics.Raycast(eyeline.transform.position, eyeline.transform.TransformDirection(Vector3.forward), out hit, pickuprange))
+        {
+
             k = hit.collider.GetComponent<KeyScript>();
-            if (k != null) {
+            if (k != null)
+            {
                 PickUp();
-                Debug.Log("HIT!");
             }
         }
-        else {
-            Debug.DrawRay(transform.position,transform.TransformDirection(Vector3.forward),Color.red);
-        }
     }
-
    void PickUp() {
         key.transform.SetParent(keyholdposition);
         key.transform.SetPositionAndRotation(keyholdposition.transform.position, Quaternion.Euler(90,0,0));
         k.stopspinning = true;
-        
+        gotkey = true;
+        pressE.SetActive(false);
    }
+
 
 }

@@ -7,7 +7,7 @@ public class KeyScript : MonoBehaviour
     private Transform rotating;
     public float spinspeed;
     public bool stopspinning;
-    public Transform pivotposition;
+    
 
     // Start is called before the first frame update
     void Start()

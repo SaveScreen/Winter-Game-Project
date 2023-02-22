@@ -35,6 +35,7 @@ public class PlayerScript : MonoBehaviour
     public GameObject game;
     private GameController gamecontroller;
     public GameObject enemy;
+    private EnemyScript e;
 
 
     // Start is called before the first frame update
@@ -164,6 +165,15 @@ public class PlayerScript : MonoBehaviour
         gotkey = true;
         pressE.SetActive(false);
    }
+
+    private void OnCollisionEnter(Collision other)
+    {
+        e = other.gameObject.GetComponent<EnemyScript>();
+        if (e != null)
+        {
+            gamecontroller.gameover = true;
+        }
+    }
 
 
 }

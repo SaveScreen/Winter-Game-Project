@@ -335,6 +335,27 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 28
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &301284751 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 353016380927840622, guid: 2b3f75416081ac141b644c1f9ed4e2c9, type: 3}
+  m_PrefabInstance: {fileID: 587512315473034703}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &301284757
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 301284751}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &303865407
 GameObject:
   m_ObjectHideFlags: 0
@@ -3423,6 +3444,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 509625394}
+    - target: {fileID: 587512315632251908, guid: 2b3f75416081ac141b644c1f9ed4e2c9, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1129834147010399188, guid: 2b3f75416081ac141b644c1f9ed4e2c9, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -3617,6 +3642,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 647476526}
     - target: {fileID: 404493047, guid: f61f1866022db014c8cd6dfb5973901b, type: 3}
+      propertyPath: enemy
+      value: 
+      objectReference: {fileID: 301284751}
+    - target: {fileID: 404493047, guid: f61f1866022db014c8cd6dfb5973901b, type: 3}
       propertyPath: pressE
       value: 
       objectReference: {fileID: 1750383865}
@@ -3624,6 +3653,162 @@ PrefabInstance:
       propertyPath: eyeline
       value: 
       objectReference: {fileID: 5840668814636116372}
+    - target: {fileID: 404493047, guid: f61f1866022db014c8cd6dfb5973901b, type: 3}
+      propertyPath: playerrotation.m_SingletonActionBindings.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 404493047, guid: f61f1866022db014c8cd6dfb5973901b, type: 3}
+      propertyPath: playercontroller.m_SingletonActionBindings.Array.size
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 404493047, guid: f61f1866022db014c8cd6dfb5973901b, type: 3}
+      propertyPath: playerrotation.m_SingletonActionBindings.Array.data[1].m_Id
+      value: f224db12-e806-4088-9af8-05b38a6806e0
+      objectReference: {fileID: 0}
+    - target: {fileID: 404493047, guid: f61f1866022db014c8cd6dfb5973901b, type: 3}
+      propertyPath: playercontroller.m_SingletonActionBindings.Array.data[7].m_Id
+      value: 1de669e4-cee4-4bd8-9f02-b542e951ae97
+      objectReference: {fileID: 0}
+    - target: {fileID: 404493047, guid: f61f1866022db014c8cd6dfb5973901b, type: 3}
+      propertyPath: playercontroller.m_SingletonActionBindings.Array.data[8].m_Id
+      value: 90edab33-17ff-4352-ab7e-602f3e377f80
+      objectReference: {fileID: 0}
+    - target: {fileID: 404493047, guid: f61f1866022db014c8cd6dfb5973901b, type: 3}
+      propertyPath: playercontroller.m_SingletonActionBindings.Array.data[9].m_Id
+      value: 7fa3c798-10e6-469d-9dce-92b9c0bbc5bb
+      objectReference: {fileID: 0}
+    - target: {fileID: 404493047, guid: f61f1866022db014c8cd6dfb5973901b, type: 3}
+      propertyPath: playerrotation.m_SingletonActionBindings.Array.data[1].m_Path
+      value: <Gamepad>/rightStick
+      objectReference: {fileID: 0}
+    - target: {fileID: 404493047, guid: f61f1866022db014c8cd6dfb5973901b, type: 3}
+      propertyPath: playercontroller.m_SingletonActionBindings.Array.data[10].m_Id
+      value: d93310c4-b169-460f-a223-8548bfa9b2d1
+      objectReference: {fileID: 0}
+    - target: {fileID: 404493047, guid: f61f1866022db014c8cd6dfb5973901b, type: 3}
+      propertyPath: playercontroller.m_SingletonActionBindings.Array.data[11].m_Id
+      value: 79205f18-c252-4275-97a9-3849feb5615f
+      objectReference: {fileID: 0}
+    - target: {fileID: 404493047, guid: f61f1866022db014c8cd6dfb5973901b, type: 3}
+      propertyPath: playercontroller.m_SingletonActionBindings.Array.data[12].m_Id
+      value: 546d3abd-4a8f-4c6e-be2e-703ce61b454e
+      objectReference: {fileID: 0}
+    - target: {fileID: 404493047, guid: f61f1866022db014c8cd6dfb5973901b, type: 3}
+      propertyPath: playercontroller.m_SingletonActionBindings.Array.data[13].m_Id
+      value: c1d1c558-6ed5-4cc3-baa2-50e476d1890d
+      objectReference: {fileID: 0}
+    - target: {fileID: 404493047, guid: f61f1866022db014c8cd6dfb5973901b, type: 3}
+      propertyPath: playercontroller.m_SingletonActionBindings.Array.data[0].m_Name
+      value: WASD
+      objectReference: {fileID: 0}
+    - target: {fileID: 404493047, guid: f61f1866022db014c8cd6dfb5973901b, type: 3}
+      propertyPath: playercontroller.m_SingletonActionBindings.Array.data[7].m_Name
+      value: Gamepad
+      objectReference: {fileID: 0}
+    - target: {fileID: 404493047, guid: f61f1866022db014c8cd6dfb5973901b, type: 3}
+      propertyPath: playercontroller.m_SingletonActionBindings.Array.data[7].m_Path
+      value: 3DVector
+      objectReference: {fileID: 0}
+    - target: {fileID: 404493047, guid: f61f1866022db014c8cd6dfb5973901b, type: 3}
+      propertyPath: playercontroller.m_SingletonActionBindings.Array.data[8].m_Name
+      value: up
+      objectReference: {fileID: 0}
+    - target: {fileID: 404493047, guid: f61f1866022db014c8cd6dfb5973901b, type: 3}
+      propertyPath: playercontroller.m_SingletonActionBindings.Array.data[9].m_Name
+      value: down
+      objectReference: {fileID: 0}
+    - target: {fileID: 404493047, guid: f61f1866022db014c8cd6dfb5973901b, type: 3}
+      propertyPath: playerrotation.m_SingletonActionBindings.Array.data[1].m_Action
+      value: Playerrotation
+      objectReference: {fileID: 0}
+    - target: {fileID: 404493047, guid: f61f1866022db014c8cd6dfb5973901b, type: 3}
+      propertyPath: playercontroller.m_SingletonActionBindings.Array.data[10].m_Name
+      value: left
+      objectReference: {fileID: 0}
+    - target: {fileID: 404493047, guid: f61f1866022db014c8cd6dfb5973901b, type: 3}
+      propertyPath: playercontroller.m_SingletonActionBindings.Array.data[10].m_Path
+      value: <Gamepad>/leftStick/left
+      objectReference: {fileID: 0}
+    - target: {fileID: 404493047, guid: f61f1866022db014c8cd6dfb5973901b, type: 3}
+      propertyPath: playercontroller.m_SingletonActionBindings.Array.data[11].m_Name
+      value: right
+      objectReference: {fileID: 0}
+    - target: {fileID: 404493047, guid: f61f1866022db014c8cd6dfb5973901b, type: 3}
+      propertyPath: playercontroller.m_SingletonActionBindings.Array.data[11].m_Path
+      value: <Gamepad>/leftStick/right
+      objectReference: {fileID: 0}
+    - target: {fileID: 404493047, guid: f61f1866022db014c8cd6dfb5973901b, type: 3}
+      propertyPath: playercontroller.m_SingletonActionBindings.Array.data[12].m_Name
+      value: forward
+      objectReference: {fileID: 0}
+    - target: {fileID: 404493047, guid: f61f1866022db014c8cd6dfb5973901b, type: 3}
+      propertyPath: playercontroller.m_SingletonActionBindings.Array.data[12].m_Path
+      value: <Gamepad>/leftStick/up
+      objectReference: {fileID: 0}
+    - target: {fileID: 404493047, guid: f61f1866022db014c8cd6dfb5973901b, type: 3}
+      propertyPath: playercontroller.m_SingletonActionBindings.Array.data[13].m_Name
+      value: backward
+      objectReference: {fileID: 0}
+    - target: {fileID: 404493047, guid: f61f1866022db014c8cd6dfb5973901b, type: 3}
+      propertyPath: playercontroller.m_SingletonActionBindings.Array.data[13].m_Path
+      value: <Gamepad>/leftStick/down
+      objectReference: {fileID: 0}
+    - target: {fileID: 404493047, guid: f61f1866022db014c8cd6dfb5973901b, type: 3}
+      propertyPath: playercontroller.m_SingletonActionBindings.Array.data[7].m_Flags
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 404493047, guid: f61f1866022db014c8cd6dfb5973901b, type: 3}
+      propertyPath: playercontroller.m_SingletonActionBindings.Array.data[8].m_Flags
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 404493047, guid: f61f1866022db014c8cd6dfb5973901b, type: 3}
+      propertyPath: playercontroller.m_SingletonActionBindings.Array.data[9].m_Flags
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 404493047, guid: f61f1866022db014c8cd6dfb5973901b, type: 3}
+      propertyPath: playercontroller.m_SingletonActionBindings.Array.data[10].m_Flags
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 404493047, guid: f61f1866022db014c8cd6dfb5973901b, type: 3}
+      propertyPath: playercontroller.m_SingletonActionBindings.Array.data[11].m_Flags
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 404493047, guid: f61f1866022db014c8cd6dfb5973901b, type: 3}
+      propertyPath: playercontroller.m_SingletonActionBindings.Array.data[12].m_Flags
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 404493047, guid: f61f1866022db014c8cd6dfb5973901b, type: 3}
+      propertyPath: playercontroller.m_SingletonActionBindings.Array.data[13].m_Flags
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 404493047, guid: f61f1866022db014c8cd6dfb5973901b, type: 3}
+      propertyPath: playercontroller.m_SingletonActionBindings.Array.data[7].m_Action
+      value: Playercontroller
+      objectReference: {fileID: 0}
+    - target: {fileID: 404493047, guid: f61f1866022db014c8cd6dfb5973901b, type: 3}
+      propertyPath: playercontroller.m_SingletonActionBindings.Array.data[8].m_Action
+      value: Playercontroller
+      objectReference: {fileID: 0}
+    - target: {fileID: 404493047, guid: f61f1866022db014c8cd6dfb5973901b, type: 3}
+      propertyPath: playercontroller.m_SingletonActionBindings.Array.data[9].m_Action
+      value: Playercontroller
+      objectReference: {fileID: 0}
+    - target: {fileID: 404493047, guid: f61f1866022db014c8cd6dfb5973901b, type: 3}
+      propertyPath: playercontroller.m_SingletonActionBindings.Array.data[10].m_Action
+      value: Playercontroller
+      objectReference: {fileID: 0}
+    - target: {fileID: 404493047, guid: f61f1866022db014c8cd6dfb5973901b, type: 3}
+      propertyPath: playercontroller.m_SingletonActionBindings.Array.data[11].m_Action
+      value: Playercontroller
+      objectReference: {fileID: 0}
+    - target: {fileID: 404493047, guid: f61f1866022db014c8cd6dfb5973901b, type: 3}
+      propertyPath: playercontroller.m_SingletonActionBindings.Array.data[12].m_Action
+      value: Playercontroller
+      objectReference: {fileID: 0}
+    - target: {fileID: 404493047, guid: f61f1866022db014c8cd6dfb5973901b, type: 3}
+      propertyPath: playercontroller.m_SingletonActionBindings.Array.data[13].m_Action
+      value: Playercontroller
+      objectReference: {fileID: 0}
     - target: {fileID: 5840668813690659810, guid: f61f1866022db014c8cd6dfb5973901b, type: 3}
       propertyPath: m_RootOrder
       value: 4

@@ -31,6 +31,7 @@ public class EnemyScript : MonoBehaviour
        
     }
 
+    /*
     void OnCollisionEnter(Collision other) {
 
         p = other.gameObject.GetComponent<PlayerScript>();
@@ -39,4 +40,5 @@ public class EnemyScript : MonoBehaviour
             Debug.Log("Ouch!");
         }
     }
+    */
 }

@@ -12,7 +12,7 @@ public class GameController : MonoBehaviour
     public GameObject player;
     private PlayerScript p;
     private float hurttimer;
-    private float frosttimer;
+    public float frosttimer;
     private bool frosting;
     private bool hurting;
     private int hurtphase;
@@ -24,9 +24,9 @@ public class GameController : MonoBehaviour
         p = player.GetComponent<PlayerScript>();
         frostalpha = frost.GetComponent<CanvasGroup>();
         hurtalpha = hurt.GetComponent<CanvasGroup>();
-        frosttimer = 0.5f;
         hurttimer = 6.0f;
-        frosting = false;
+        frosting = true;
+        frostalpha.alpha = 0.0f;
         hurting = false;
         hurtphase = 0;
         gameover = false;

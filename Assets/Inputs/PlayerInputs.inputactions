@@ -15,7 +15,7 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Fire",
+                    "name": "Pickup",
                     "type": "Button",
                     "id": "cef25479-6bcf-41fe-a91e-b873c2f3abb9",
                     "expectedControlType": "Button",
@@ -156,22 +156,22 @@
                 {
                     "name": "",
                     "id": "2ddc7e36-a1c2-4c26-9d80-e8e98fb99c8f",
-                    "path": "<Keyboard>/q",
+                    "path": "<Keyboard>/e",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Fire",
+                    "action": "Pickup",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
                     "id": "c5ab0903-1d11-4fa0-8e39-f10397d2f673",
-                    "path": "<Mouse>/leftButton",
+                    "path": "<Gamepad>/buttonSouth",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Fire",
+                    "action": "Pickup",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

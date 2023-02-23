@@ -6,31 +6,35 @@ using UnityEngine.UI;
 public class GameController : MonoBehaviour
 {
     public GameObject frost;
-    public GameObject hurt;
-    private CanvasGroup hurtalpha;
+    public GameObject frostdeath;
+    private CanvasGroup frostdeathalpha;
     private CanvasGroup frostalpha;
     public GameObject player;
     private PlayerScript p;
-    private float hurttimer;
-    public float frosttimer;
-    private bool frosting;
-    private bool hurting;
-    private int hurtphase;
+    //private float hurtspeed;
+    public float frostspeed;
+    public float defrostspeed;
+    public bool frosting;
+    //private bool hurting;
+    //private int hurtphase;
     public GameObject gameoverscreen;
     public bool gameover;
+    public bool deathbyfrost;
     // Start is called before the first frame update
     void Start()
     {
         p = player.GetComponent<PlayerScript>();
         frostalpha = frost.GetComponent<CanvasGroup>();
-        hurtalpha = hurt.GetComponent<CanvasGroup>();
-        hurttimer = 6.0f;
+        frostdeathalpha = frostdeath.GetComponent<CanvasGroup>();
+        //hurtspeed = 6.0f;
         frosting = true;
         frostalpha.alpha = 0.0f;
-        hurting = false;
-        hurtphase = 0;
+        frostdeathalpha.alpha = 0.0f;
+        //hurting = false;
+        //hurtphase = 0;
         gameover = false;
         gameoverscreen.SetActive(false);
+        deathbyfrost = false;
     }
 
     // Update is called once per frame
@@ -40,34 +44,53 @@ public class GameController : MonoBehaviour
         {
             gameoverscreen.SetActive(false);
 
+            //frosting going down
+            if (frosting == false && frostalpha.alpha > 0.0f) {
+                frostalpha.alpha = Mathf.MoveTowards(frostalpha.alpha, 0.0f, defrostspeed * Time.deltaTime);
+            }
+            else if (frosting == false && frostalpha.alpha <= 0.0f) {
+                frosting = true;
+            }
+
+            //frosting going up
+            if (frosting == true && frostalpha.alpha < 1.0f) {
+                frostalpha.alpha = Mathf.MoveTowards(frostalpha.alpha, 1.0f, frostspeed * Time.deltaTime);
+            } 
+            else if (frosting == true && frostalpha.alpha >= 1.0f) {
+                gameover = true;
+                deathbyfrost = true;
+            }
+
+            //************************OLD FROSTING SYSTEM***********************
+            /*
             if (frosting == false)
             {
-                frostalpha.alpha = Mathf.MoveTowards(frostalpha.alpha, 0.0f, frosttimer * Time.deltaTime);
+                frostalpha.alpha = Mathf.MoveTowards(frostalpha.alpha, 0.0f, frostspeed * Time.deltaTime);
             }
             else if (frosting == true)
             {
-                frostalpha.alpha = Mathf.MoveTowards(frostalpha.alpha, 1.0f, frosttimer * Time.deltaTime);
+                frostalpha.alpha = Mathf.MoveTowards(frostalpha.alpha, 1.0f, frostspeed * Time.deltaTime);
             }
-            if (frostalpha.alpha == 0.0f)
+            if (frostalpha.alpha == 0.0f && frosting == false)
             {
                 frosting = true;
             }
-            if (frostalpha.alpha == 1.0f)
+            if (frostalpha.alpha == 1.0f && frosting == true)
             {
                 frosting = false;
                 hurting = true;
 
             }
-
+            
             if (hurting == true)
             {
                 if (hurtphase == 0)
                 {
-                    hurtalpha.alpha = Mathf.MoveTowards(hurtalpha.alpha, 0.6f, hurttimer * Time.deltaTime);
+                    hurtalpha.alpha = Mathf.MoveTowards(hurtalpha.alpha, 0.6f, hurtspeed * Time.deltaTime);
                 }
                 if (hurtphase == 1)
                 {
-                    hurtalpha.alpha = Mathf.MoveTowards(hurtalpha.alpha, 0.0f, hurttimer * Time.deltaTime);
+                    hurtalpha.alpha = Mathf.MoveTowards(hurtalpha.alpha, 0.0f, hurtspeed * Time.deltaTime);
                 }
 
                 if (hurtalpha.alpha == 0.6f)
@@ -79,13 +102,17 @@ public class GameController : MonoBehaviour
                     hurtphase = 0;
                     hurting = false;
                 }
-
+                
             }
+            */
         }
         
         if (gameover == true)
         {
             gameoverscreen.SetActive(true);
+            if (deathbyfrost == true) {
+                frostdeathalpha.alpha = Mathf.MoveTowards(frostdeathalpha.alpha, 1.0f, 1.0f * Time.deltaTime);
+            }
         }
         
         

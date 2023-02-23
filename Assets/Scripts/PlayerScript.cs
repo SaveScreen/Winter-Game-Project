@@ -36,6 +36,7 @@ public class PlayerScript : MonoBehaviour
     private GameController gamecontroller;
     public GameObject enemy;
     private EnemyScript e;
+    public bool issafe;
 
 
     // Start is called before the first frame update
@@ -53,6 +54,7 @@ public class PlayerScript : MonoBehaviour
         pickuprange = 5.0f;
         gotkey = false;
         pressE.SetActive(false);
+        issafe = false;
         
     }
 
@@ -122,7 +124,12 @@ public class PlayerScript : MonoBehaviour
             }
         }
         
-       
+        if (issafe == true) {
+            gamecontroller.frosting = false;
+        } 
+        if (issafe == false) {
+            gamecontroller.frosting = true;
+        }
     }
 
     void FixedUpdate() {

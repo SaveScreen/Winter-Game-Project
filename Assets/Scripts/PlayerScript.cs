@@ -44,8 +44,10 @@ public class PlayerScript : MonoBehaviour
     public GameObject game;
     private GameController gamecontroller;
     public GameObject enemy;
+    //public GameObject winplane;
     private EnemyScript e;
     public bool issafe;
+    public GameObject needkey;
 
 
     // Start is called before the first frame update
@@ -64,6 +66,7 @@ public class PlayerScript : MonoBehaviour
         gotkey = false;
         pressE.SetActive(false);
         pressEtoopen.SetActive(false);
+        needkey.SetActive(false);
         issafe = false;
         
     }
@@ -85,14 +88,14 @@ public class PlayerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (gamecontroller.gameover == false)
+        if (gamecontroller.gameover == false && gamecontroller.gamewin == false)
         {
             move = playercontroller.ReadValue<Vector3>();
             buttonsouthpress = playerpickup.IsPressed();
             
             Look();
         }
-        if (gamecontroller.gameover == true)
+        if (gamecontroller.gameover == true || gamecontroller.gamewin == true)
         {
             speed = 0.0f;
             buttoneastpress = playercancel.IsPressed();
@@ -145,16 +148,23 @@ public class PlayerScript : MonoBehaviour
             if (Physics.Raycast(eyeline.transform.position, eyeline.transform.TransformDirection(Vector3.forward), out hit, pickuprange))
             {
                 k = hit.collider.GetComponent<KeyScript>();
+                d = hit.collider.GetComponent<DoorScript>();
                 if (k != null)
                 {
-                    Debug.DrawRay(eyeline.transform.position, eyeline.transform.TransformDirection(Vector3.forward), Color.red);
+                    
                     pressE.SetActive(true);
 
+                }
+                else if (d != null) {
+                    
+                    needkey.SetActive(true); 
                 }
                 else
                 {
                     pressE.SetActive(false);
+                    needkey.SetActive(false);
                 }
+                
 
             }
         }
@@ -169,7 +179,7 @@ public class PlayerScript : MonoBehaviour
                 d = hit.collider.GetComponent<DoorScript>();
                 if (d != null)
                 {
-                    Debug.DrawRay(eyeline.transform.position, eyeline.transform.TransformDirection(Vector3.forward), Color.red);
+                    
                     pressEtoopen.SetActive(true);
 
                 }
@@ -243,17 +253,6 @@ public class PlayerScript : MonoBehaviour
             }
         }
    }
-
-    /*
-    private void OnCollisionEnter(Collision other)
-    {
-        e = other.gameObject.GetComponent<EnemyScript>();
-        if (e != null)
-        {
-            gamecontroller.gameover = true;
-        }
-    }
-    */
 
 
 }

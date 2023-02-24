@@ -301,7 +301,7 @@ Transform:
   - {fileID: 1409314821}
   - {fileID: 7288029910196633050}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &5840668813690659811
 MeshFilter:
@@ -557,6 +557,56 @@ MonoBehaviour:
       m_Action: Playerrotation
       m_Flags: 0
     m_Flags: 0
+  playerpickup:
+    m_Name: Playerpickup
+    m_Type: 1
+    m_ExpectedControlType: Button
+    m_Id: 5b33144d-a73b-455b-accc-62d9dd59a382
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 68a982da-44d1-4d97-8768-e2d01f1b822e
+      m_Path: <Keyboard>/e
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Playerpickup
+      m_Flags: 0
+    - m_Name: 
+      m_Id: caa6942a-65ae-4581-92d3-9cffb461bb2b
+      m_Path: <Gamepad>/buttonSouth
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Playerpickup
+      m_Flags: 0
+    m_Flags: 0
+  playercancel:
+    m_Name: Playercancel
+    m_Type: 1
+    m_ExpectedControlType: Button
+    m_Id: 5b2f5244-1708-48d6-9170-14cbd09fe501
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 42482591-2a51-4772-9431-9d88fc754252
+      m_Path: <Keyboard>/r
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Playercancel
+      m_Flags: 0
+    - m_Name: 
+      m_Id: f085ddcd-6c42-4838-933d-4debfe9f8ee2
+      m_Path: <Gamepad>/buttonEast
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Playercancel
+      m_Flags: 0
+    m_Flags: 0
   orientation: {fileID: 1236877719914863313}
   groundcheck: {fileID: 1409314821}
   groundmask:
@@ -566,8 +616,11 @@ MonoBehaviour:
   keyholdposition: {fileID: 1914538395}
   eyeline: {fileID: 7288029910196633050}
   pressE: {fileID: 0}
+  pressEtoopen: {fileID: 0}
   game: {fileID: 0}
   enemy: {fileID: 0}
+  issafe: 0
+  needkey: {fileID: 0}
 --- !u!143 &24098530
 CharacterController:
   m_ObjectHideFlags: 0

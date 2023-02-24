@@ -10,11 +10,18 @@ public class PlayerScript : MonoBehaviour
     public float sensitivity;
     public InputAction playercontroller;
     public InputAction playerrotation;
+    public InputAction playerpickup;
+    public InputAction playercancel;
     private CharacterController character;
     public Transform orientation;
     private Vector3 move;
     private Vector2 look;
     private Vector3 movement;
+    //A Button
+    private bool buttonsouthpress;
+    //B Button
+    private bool buttoneastpress;
+
     public Transform groundcheck;
     public LayerMask groundmask;
     private float gravity;
@@ -61,11 +68,15 @@ public class PlayerScript : MonoBehaviour
     void OnEnable() {
         playercontroller.Enable();
         playerrotation.Enable();
+        playerpickup.Enable();
+        playercancel.Enable();
     }
 
     void OnDisable() {
         playercontroller.Disable();
         playerrotation.Disable();
+        playerpickup.Disable();
+        playercancel.Disable();
     }
 
     // Update is called once per frame
@@ -74,16 +85,27 @@ public class PlayerScript : MonoBehaviour
         if (gamecontroller.gameover == false)
         {
             move = playercontroller.ReadValue<Vector3>();
+            buttonsouthpress = playerpickup.IsPressed();
+            
             Look();
         }
         if (gamecontroller.gameover == true)
         {
+            speed = 0.0f;
+            buttoneastpress = playercancel.IsPressed();
+            if (buttoneastpress) {
+                SceneManager.LoadScene("Game Scene");
+                gamecontroller.gameover = false;
+            }
+
+            /*
             if (Input.GetKeyDown(KeyCode.R))
             {
                 SceneManager.LoadScene("Game Scene");
                 gamecontroller.gameover = false;
                 
             }
+            */
         }
 
 
@@ -96,9 +118,16 @@ public class PlayerScript : MonoBehaviour
             Application.Quit();
         }
 
+
+        /*
         if (Input.GetKeyDown(KeyCode.E)) {
             StartPickup();
 
+        }
+        */
+        if (buttonsouthpress) {
+            Debug.Log("Pressed!");
+            StartPickup();
         }
 
         
@@ -175,6 +204,7 @@ public class PlayerScript : MonoBehaviour
         pressE.SetActive(false);
    }
 
+    /*
     private void OnCollisionEnter(Collision other)
     {
         e = other.gameObject.GetComponent<EnemyScript>();
@@ -183,6 +213,7 @@ public class PlayerScript : MonoBehaviour
             gamecontroller.gameover = true;
         }
     }
+    */
 
 
 }

@@ -399,22 +399,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 353016380927840622, guid: 2b3f75416081ac141b644c1f9ed4e2c9, type: 3}
   m_PrefabInstance: {fileID: 587512315473034703}
   m_PrefabAsset: {fileID: 0}
---- !u!54 &301284757
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 301284751}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 1
 --- !u!1 &303865407
 GameObject:
   m_ObjectHideFlags: 0
@@ -3787,6 +3771,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 509625394}
+    - target: {fileID: 587512315632251907, guid: 2b3f75416081ac141b644c1f9ed4e2c9, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 587512315632251908, guid: 2b3f75416081ac141b644c1f9ed4e2c9, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -3980,6 +3968,94 @@ PrefabInstance:
       propertyPath: pressE
       value: 
       objectReference: {fileID: 1750383865}
+    - target: {fileID: 404493047, guid: f61f1866022db014c8cd6dfb5973901b, type: 3}
+      propertyPath: playercancel.m_Id
+      value: 2afc9e79-e291-49e8-b3e9-f2e2d7641927
+      objectReference: {fileID: 0}
+    - target: {fileID: 404493047, guid: f61f1866022db014c8cd6dfb5973901b, type: 3}
+      propertyPath: playerpickup.m_Id
+      value: 399d15c0-c92a-41b1-b20f-ab56856c78dc
+      objectReference: {fileID: 0}
+    - target: {fileID: 404493047, guid: f61f1866022db014c8cd6dfb5973901b, type: 3}
+      propertyPath: playercancel.m_Name
+      value: Playercancel
+      objectReference: {fileID: 0}
+    - target: {fileID: 404493047, guid: f61f1866022db014c8cd6dfb5973901b, type: 3}
+      propertyPath: playercancel.m_Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 404493047, guid: f61f1866022db014c8cd6dfb5973901b, type: 3}
+      propertyPath: playerpickup.m_Name
+      value: Playerpickup
+      objectReference: {fileID: 0}
+    - target: {fileID: 404493047, guid: f61f1866022db014c8cd6dfb5973901b, type: 3}
+      propertyPath: playerpickup.m_Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 404493047, guid: f61f1866022db014c8cd6dfb5973901b, type: 3}
+      propertyPath: playercancel.m_ExpectedControlType
+      value: Button
+      objectReference: {fileID: 0}
+    - target: {fileID: 404493047, guid: f61f1866022db014c8cd6dfb5973901b, type: 3}
+      propertyPath: playerpickup.m_ExpectedControlType
+      value: Button
+      objectReference: {fileID: 0}
+    - target: {fileID: 404493047, guid: f61f1866022db014c8cd6dfb5973901b, type: 3}
+      propertyPath: playercancel.m_SingletonActionBindings.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 404493047, guid: f61f1866022db014c8cd6dfb5973901b, type: 3}
+      propertyPath: playerpickup.m_SingletonActionBindings.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 404493047, guid: f61f1866022db014c8cd6dfb5973901b, type: 3}
+      propertyPath: playercancel.m_SingletonActionBindings.Array.data[0].m_Id
+      value: 356d2371-2754-4c10-9fd8-91b066317ac3
+      objectReference: {fileID: 0}
+    - target: {fileID: 404493047, guid: f61f1866022db014c8cd6dfb5973901b, type: 3}
+      propertyPath: playercancel.m_SingletonActionBindings.Array.data[1].m_Id
+      value: 87d6703d-2e56-4a6b-99da-9b3dd10e18d6
+      objectReference: {fileID: 0}
+    - target: {fileID: 404493047, guid: f61f1866022db014c8cd6dfb5973901b, type: 3}
+      propertyPath: playerpickup.m_SingletonActionBindings.Array.data[0].m_Id
+      value: e25fb5fe-42a3-48c1-a503-d05cb830ee65
+      objectReference: {fileID: 0}
+    - target: {fileID: 404493047, guid: f61f1866022db014c8cd6dfb5973901b, type: 3}
+      propertyPath: playerpickup.m_SingletonActionBindings.Array.data[1].m_Id
+      value: 0d310f92-df9b-48d1-aead-5af4fd4eef1f
+      objectReference: {fileID: 0}
+    - target: {fileID: 404493047, guid: f61f1866022db014c8cd6dfb5973901b, type: 3}
+      propertyPath: playercancel.m_SingletonActionBindings.Array.data[0].m_Path
+      value: <Keyboard>/r
+      objectReference: {fileID: 0}
+    - target: {fileID: 404493047, guid: f61f1866022db014c8cd6dfb5973901b, type: 3}
+      propertyPath: playercancel.m_SingletonActionBindings.Array.data[1].m_Path
+      value: <Gamepad>/buttonEast
+      objectReference: {fileID: 0}
+    - target: {fileID: 404493047, guid: f61f1866022db014c8cd6dfb5973901b, type: 3}
+      propertyPath: playerpickup.m_SingletonActionBindings.Array.data[0].m_Path
+      value: <Keyboard>/e
+      objectReference: {fileID: 0}
+    - target: {fileID: 404493047, guid: f61f1866022db014c8cd6dfb5973901b, type: 3}
+      propertyPath: playerpickup.m_SingletonActionBindings.Array.data[1].m_Path
+      value: <Gamepad>/buttonSouth
+      objectReference: {fileID: 0}
+    - target: {fileID: 404493047, guid: f61f1866022db014c8cd6dfb5973901b, type: 3}
+      propertyPath: playercancel.m_SingletonActionBindings.Array.data[0].m_Action
+      value: Playercancel
+      objectReference: {fileID: 0}
+    - target: {fileID: 404493047, guid: f61f1866022db014c8cd6dfb5973901b, type: 3}
+      propertyPath: playercancel.m_SingletonActionBindings.Array.data[1].m_Action
+      value: Playercancel
+      objectReference: {fileID: 0}
+    - target: {fileID: 404493047, guid: f61f1866022db014c8cd6dfb5973901b, type: 3}
+      propertyPath: playerpickup.m_SingletonActionBindings.Array.data[0].m_Action
+      value: Playerpickup
+      objectReference: {fileID: 0}
+    - target: {fileID: 404493047, guid: f61f1866022db014c8cd6dfb5973901b, type: 3}
+      propertyPath: playerpickup.m_SingletonActionBindings.Array.data[1].m_Action
+      value: Playerpickup
+      objectReference: {fileID: 0}
     - target: {fileID: 5840668813690659810, guid: f61f1866022db014c8cd6dfb5973901b, type: 3}
       propertyPath: m_RootOrder
       value: 3

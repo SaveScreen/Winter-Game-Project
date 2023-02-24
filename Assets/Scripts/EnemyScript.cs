@@ -31,8 +31,8 @@ public class EnemyScript : MonoBehaviour
        
     }
 
-    /*
-    void OnCollisionEnter(Collision other) {
+    
+    void OnTriggerEnter(Collider other) {
 
         p = other.gameObject.GetComponent<PlayerScript>();
         if (p != null) {
@@ -40,5 +40,5 @@ public class EnemyScript : MonoBehaviour
             Debug.Log("Ouch!");
         }
     }
-    */
+    
 }

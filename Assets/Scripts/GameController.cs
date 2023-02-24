@@ -20,6 +20,8 @@ public class GameController : MonoBehaviour
     public GameObject gameoverscreen;
     public bool gameover;
     public bool deathbyfrost;
+    public bool gotkey;
+    public bool dooropened;
     // Start is called before the first frame update
     void Start()
     {
@@ -35,6 +37,7 @@ public class GameController : MonoBehaviour
         gameover = false;
         gameoverscreen.SetActive(false);
         deathbyfrost = false;
+        dooropened = false;
     }
 
     // Update is called once per frame

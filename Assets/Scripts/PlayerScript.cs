@@ -34,11 +34,13 @@ public class PlayerScript : MonoBehaviour
     private float rotationy;
     public GameObject key;
     private KeyScript k;
+    private DoorScript d;
     private float pickuprange;
     public Transform keyholdposition;
     public Transform eyeline;
     private bool gotkey;
     public GameObject pressE;
+    public GameObject pressEtoopen;
     public GameObject game;
     private GameController gamecontroller;
     public GameObject enemy;
@@ -61,6 +63,7 @@ public class PlayerScript : MonoBehaviour
         pickuprange = 5.0f;
         gotkey = false;
         pressE.SetActive(false);
+        pressEtoopen.SetActive(false);
         issafe = false;
         
     }
@@ -94,7 +97,7 @@ public class PlayerScript : MonoBehaviour
             speed = 0.0f;
             buttoneastpress = playercancel.IsPressed();
             if (buttoneastpress) {
-                SceneManager.LoadScene("Game Scene");
+                SceneManager.LoadScene("Final Level");
                 gamecontroller.gameover = false;
             }
 
@@ -126,11 +129,14 @@ public class PlayerScript : MonoBehaviour
         }
         */
         if (buttonsouthpress) {
-            Debug.Log("Pressed!");
             StartPickup();
+
+            if (gotkey == true) {
+                OpenDoor();
+            }
         }
 
-        
+        //Debug Raycast test
         if (gotkey == false)
         {
             //Debug raycasting test
@@ -148,6 +154,28 @@ public class PlayerScript : MonoBehaviour
                 else
                 {
                     pressE.SetActive(false);
+                }
+
+            }
+        }
+        
+        //Debug Raycast test
+        if (gotkey == true) {
+            //Debug raycasting test
+            Debug.DrawRay(eyeline.transform.position, eyeline.transform.TransformDirection(Vector3.forward), Color.yellow);
+            RaycastHit hit;
+            if (Physics.Raycast(eyeline.transform.position, eyeline.transform.TransformDirection(Vector3.forward), out hit, pickuprange))
+            {
+                d = hit.collider.GetComponent<DoorScript>();
+                if (d != null)
+                {
+                    Debug.DrawRay(eyeline.transform.position, eyeline.transform.TransformDirection(Vector3.forward), Color.red);
+                    pressEtoopen.SetActive(true);
+
+                }
+                else
+                {
+                    pressEtoopen.SetActive(false);
                 }
 
             }
@@ -201,7 +229,19 @@ public class PlayerScript : MonoBehaviour
         key.transform.SetPositionAndRotation(keyholdposition.transform.position, Quaternion.Euler(90,0,0));
         k.stopspinning = true;
         gotkey = true;
+        gamecontroller.gotkey = true;
         pressE.SetActive(false);
+   }
+
+   void OpenDoor() {
+        RaycastHit hit;
+        if (Physics.Raycast(eyeline.transform.position,eyeline.transform.TransformDirection(Vector3.forward),out hit, pickuprange)) {
+            d = hit.collider.GetComponent<DoorScript>();
+            if (d != null) {
+                d.opendoor = true;
+                gamecontroller.dooropened = true;
+            }
+        }
    }
 
     /*

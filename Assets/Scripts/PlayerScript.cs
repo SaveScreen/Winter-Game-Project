@@ -48,6 +48,9 @@ public class PlayerScript : MonoBehaviour
     private EnemyScript e;
     public bool issafe;
     public GameObject needkey;
+    public GameObject pausemenu;
+    private PauseMenu pause;
+    
 
 
     // Start is called before the first frame update
@@ -55,6 +58,7 @@ public class PlayerScript : MonoBehaviour
     {
         character = gameObject.GetComponent<CharacterController>();
         gamecontroller = game.GetComponent<GameController>();
+        pause = pausemenu.GetComponent<PauseMenu>();
         //key = GameObject.FindWithTag("Key");
         //k = key.GetComponent<KeyScript>();
         //puts cursor in center of screen and so you cant see it
@@ -88,11 +92,9 @@ public class PlayerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (gamecontroller.gameover == false && gamecontroller.gamewin == false)
-        {
+        if (gamecontroller.gameover == false && gamecontroller.gamewin == false) {
             move = playercontroller.ReadValue<Vector3>();
             buttonsouthpress = playerpickup.IsPressed();
-            
             Look();
         }
         if (gamecontroller.gameover == true || gamecontroller.gamewin == true)

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerScript : MonoBehaviour
 {
@@ -10,11 +10,18 @@ public class PlayerScript : MonoBehaviour
     public float sensitivity;
     public InputAction playercontroller;
     public InputAction playerrotation;
+    public InputAction playerpickup;
+    public InputAction playercancel;
     private CharacterController character;
     public Transform orientation;
     private Vector3 move;
     private Vector2 look;
     private Vector3 movement;
+    //A Button
+    private bool buttonsouthpress;
+    //B Button
+    private bool buttoneastpress;
+
     public Transform groundcheck;
     public LayerMask groundmask;
     private float gravity;
@@ -27,14 +34,20 @@ public class PlayerScript : MonoBehaviour
     private float rotationy;
     public GameObject key;
     private KeyScript k;
+    private DoorScript d;
     private float pickuprange;
     public Transform keyholdposition;
     public Transform eyeline;
     private bool gotkey;
     public GameObject pressE;
+    public GameObject pressEtoopen;
     public GameObject game;
     private GameController gamecontroller;
     public GameObject enemy;
+    //public GameObject winplane;
+    private EnemyScript e;
+    public bool issafe;
+    public GameObject needkey;
 
 
     // Start is called before the first frame update
@@ -52,33 +65,53 @@ public class PlayerScript : MonoBehaviour
         pickuprange = 5.0f;
         gotkey = false;
         pressE.SetActive(false);
+        pressEtoopen.SetActive(false);
+        needkey.SetActive(false);
+        issafe = false;
         
     }
 
     void OnEnable() {
         playercontroller.Enable();
         playerrotation.Enable();
+        playerpickup.Enable();
+        playercancel.Enable();
     }
 
     void OnDisable() {
         playercontroller.Disable();
         playerrotation.Disable();
+        playerpickup.Disable();
+        playercancel.Disable();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (gamecontroller.gameover == false)
+        if (gamecontroller.gameover == false && gamecontroller.gamewin == false)
         {
             move = playercontroller.ReadValue<Vector3>();
+            buttonsouthpress = playerpickup.IsPressed();
+            
             Look();
         }
-        if (gamecontroller.gameover == true)
+        if (gamecontroller.gameover == true || gamecontroller.gamewin == true)
         {
-            if (Input.GetKeyDown(KeyCode.R))
-            {
+            speed = 0.0f;
+            buttoneastpress = playercancel.IsPressed();
+            if (buttoneastpress) {
+                SceneManager.LoadScene("Final Level");
                 gamecontroller.gameover = false;
             }
+
+            /*
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+                SceneManager.LoadScene("Game Scene");
+                gamecontroller.gameover = false;
+                
+            }
+            */
         }
 
 
@@ -91,12 +124,22 @@ public class PlayerScript : MonoBehaviour
             Application.Quit();
         }
 
+
+        /*
         if (Input.GetKeyDown(KeyCode.E)) {
             StartPickup();
 
         }
+        */
+        if (buttonsouthpress) {
+            StartPickup();
 
-        
+            if (gotkey == true) {
+                OpenDoor();
+            }
+        }
+
+        //Debug Raycast test
         if (gotkey == false)
         {
             //Debug raycasting test
@@ -105,21 +148,55 @@ public class PlayerScript : MonoBehaviour
             if (Physics.Raycast(eyeline.transform.position, eyeline.transform.TransformDirection(Vector3.forward), out hit, pickuprange))
             {
                 k = hit.collider.GetComponent<KeyScript>();
+                d = hit.collider.GetComponent<DoorScript>();
                 if (k != null)
                 {
-                    Debug.DrawRay(eyeline.transform.position, eyeline.transform.TransformDirection(Vector3.forward), Color.red);
+                    
                     pressE.SetActive(true);
 
+                }
+                else if (d != null) {
+                    
+                    needkey.SetActive(true); 
                 }
                 else
                 {
                     pressE.SetActive(false);
+                    needkey.SetActive(false);
+                }
+                
+
+            }
+        }
+        
+        //Debug Raycast test
+        if (gotkey == true) {
+            //Debug raycasting test
+            Debug.DrawRay(eyeline.transform.position, eyeline.transform.TransformDirection(Vector3.forward), Color.yellow);
+            RaycastHit hit;
+            if (Physics.Raycast(eyeline.transform.position, eyeline.transform.TransformDirection(Vector3.forward), out hit, pickuprange))
+            {
+                d = hit.collider.GetComponent<DoorScript>();
+                if (d != null)
+                {
+                    
+                    pressEtoopen.SetActive(true);
+
+                }
+                else
+                {
+                    pressEtoopen.SetActive(false);
                 }
 
             }
         }
         
-       
+        if (issafe == true) {
+            gamecontroller.frosting = false;
+        } 
+        if (issafe == false) {
+            gamecontroller.frosting = true;
+        }
     }
 
     void FixedUpdate() {
@@ -162,7 +239,19 @@ public class PlayerScript : MonoBehaviour
         key.transform.SetPositionAndRotation(keyholdposition.transform.position, Quaternion.Euler(90,0,0));
         k.stopspinning = true;
         gotkey = true;
+        gamecontroller.gotkey = true;
         pressE.SetActive(false);
+   }
+
+   void OpenDoor() {
+        RaycastHit hit;
+        if (Physics.Raycast(eyeline.transform.position,eyeline.transform.TransformDirection(Vector3.forward),out hit, pickuprange)) {
+            d = hit.collider.GetComponent<DoorScript>();
+            if (d != null) {
+                d.opendoor = true;
+                gamecontroller.dooropened = true;
+            }
+        }
    }
 
 

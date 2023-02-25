@@ -15,7 +15,7 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Fire",
+                    "name": "Pickup",
                     "type": "Button",
                     "id": "cef25479-6bcf-41fe-a91e-b873c2f3abb9",
                     "expectedControlType": "Button",
@@ -24,7 +24,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Jump",
+                    "name": "Cancel",
                     "type": "Button",
                     "id": "2e4a28d3-c418-4717-9866-0c052444566b",
                     "expectedControlType": "Button",
@@ -156,44 +156,33 @@
                 {
                     "name": "",
                     "id": "2ddc7e36-a1c2-4c26-9d80-e8e98fb99c8f",
-                    "path": "<Keyboard>/q",
+                    "path": "<Keyboard>/e",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Fire",
+                    "action": "Pickup",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
                     "id": "c5ab0903-1d11-4fa0-8e39-f10397d2f673",
-                    "path": "<Mouse>/leftButton",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Fire",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "0b80c13e-40ee-40fe-8a1a-e3267fef08bb",
                     "path": "<Gamepad>/buttonSouth",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Jump",
+                    "action": "Pickup",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
                     "id": "84064abc-7539-46f8-8a59-a765c34f82e1",
-                    "path": "<Keyboard>/space",
+                    "path": "<Keyboard>/r",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Jump",
+                    "action": "Cancel",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -205,6 +194,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "Look",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "6432cc76-a10a-4c99-bf27-ef8e3f3fabdb",
+                    "path": "<Gamepad>/rightStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Look",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "0b80c13e-40ee-40fe-8a1a-e3267fef08bb",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Cancel",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

@@ -7,6 +7,8 @@ public class KeyScript : MonoBehaviour
     private Transform rotating;
     public float spinspeed;
     public bool stopspinning;
+    public GameObject game;
+    private GameController g;
     
 
     // Start is called before the first frame update
@@ -14,6 +16,7 @@ public class KeyScript : MonoBehaviour
     {
         rotating = gameObject.GetComponent<Transform>();
         stopspinning = false;
+        g = game.GetComponent<GameController>();
     }
 
     // Update is called once per frame
@@ -21,6 +24,9 @@ public class KeyScript : MonoBehaviour
     {
         if (stopspinning == false) {
             rotating.Rotate(0,spinspeed * Time.deltaTime,0);
+        }
+        if (g.dooropened == true) {
+            Destroy(gameObject);
         }
         
     }

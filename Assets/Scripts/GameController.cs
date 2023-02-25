@@ -19,7 +19,11 @@ public class GameController : MonoBehaviour
     //private int hurtphase;
     public GameObject gameoverscreen;
     public bool gameover;
+    public bool gamewin;
+    public GameObject youwinscreen;
     public bool deathbyfrost;
+    public bool gotkey;
+    public bool dooropened;
     // Start is called before the first frame update
     void Start()
     {
@@ -33,14 +37,17 @@ public class GameController : MonoBehaviour
         //hurting = false;
         //hurtphase = 0;
         gameover = false;
+        gamewin = false;
         gameoverscreen.SetActive(false);
+        youwinscreen.SetActive(false);
         deathbyfrost = false;
+        dooropened = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (gameover == false)
+        if (gameover == false && gamewin == false)
         {
             gameoverscreen.SetActive(false);
 
@@ -113,6 +120,9 @@ public class GameController : MonoBehaviour
             if (deathbyfrost == true) {
                 frostdeathalpha.alpha = Mathf.MoveTowards(frostdeathalpha.alpha, 1.0f, 1.0f * Time.deltaTime);
             }
+        }
+        if (gamewin == true) {
+            youwinscreen.SetActive(true);
         }
         
         

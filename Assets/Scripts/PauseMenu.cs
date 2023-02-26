@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 
 public class PauseMenu : MonoBehaviour
 {
-    public bool GameIsPaused = false;
+    public bool GameIsPaused;
     public bool gamepaused;
     public GameObject pauseMenuUI;
     public InputAction startbutton;
@@ -15,6 +15,8 @@ public class PauseMenu : MonoBehaviour
     void Start() {
         pauseMenuUI.SetActive(false);
         gamepaused = false;
+        GameIsPaused = false;
+        Time.timeScale = 1f;
     }
 
     void OnEnable() {
@@ -65,6 +67,7 @@ public class PauseMenu : MonoBehaviour
     public void LoadMenu()
     {
         SceneManager.LoadScene("Main Menu");
+        GameIsPaused = false;
     }
 
     public void QuitGame()

@@ -24,6 +24,10 @@ public class GameController : MonoBehaviour
     public bool deathbyfrost;
     public bool gotkey;
     public bool dooropened;
+    
+    public AudioClip LoseMusic;
+    public AudioClip WinMusic;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -42,6 +46,7 @@ public class GameController : MonoBehaviour
         youwinscreen.SetActive(false);
         deathbyfrost = false;
         dooropened = false;
+        
     }
 
     // Update is called once per frame
@@ -116,6 +121,10 @@ public class GameController : MonoBehaviour
         
         if (gameover == true)
         {
+            AudioSource audio = GetComponent<AudioSource>();
+            audio.clip = LoseMusic;
+            audio.Play();
+
             gameoverscreen.SetActive(true);
             if (deathbyfrost == true) {
                 frostdeathalpha.alpha = Mathf.MoveTowards(frostdeathalpha.alpha, 1.0f, 1.0f * Time.deltaTime);
@@ -123,6 +132,9 @@ public class GameController : MonoBehaviour
         }
         if (gamewin == true) {
             youwinscreen.SetActive(true);
+            AudioSource audio = GetComponent<AudioSource>();
+            audio.clip = WinMusic;
+            audio.Play();
         }
         
         

@@ -10,6 +10,8 @@ public class EnemyScript : MonoBehaviour
     private GameController gamecontroller;
     private PlayerScript p;
     private NavMeshAgent agent;
+    private AudioSource audiosource;
+    public AudioClip hurtsound;
     public float speed;
     //private Transform currentpos;
     // Start is called before the first frame update
@@ -17,6 +19,7 @@ public class EnemyScript : MonoBehaviour
     {
         agent = gameObject.GetComponent<NavMeshAgent>();
         gamecontroller = game.GetComponent<GameController>();
+        audiosource = gameObject.GetComponent<AudioSource>();
         //currentpos = gameObject.GetComponent<Transform>();
     }
 
@@ -36,9 +39,13 @@ public class EnemyScript : MonoBehaviour
 
         p = other.gameObject.GetComponent<PlayerScript>();
         if (p != null) {
+            PlaySound(hurtsound);
             gamecontroller.gameover = true;
-            Debug.Log("Ouch!");
         }
+    }
+
+    void PlaySound(AudioClip clip) {
+        audiosource.PlayOneShot(clip);
     }
     
 }

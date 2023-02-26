@@ -39,6 +39,7 @@ public class PlayerScript : MonoBehaviour
     public Transform keyholdposition;
     public Transform eyeline;
     private bool gotkey;
+    public bool isdead;
     public GameObject pressE;
     public GameObject pressEtoopen;
     public GameObject game;
@@ -50,6 +51,11 @@ public class PlayerScript : MonoBehaviour
     public GameObject needkey;
     public GameObject pausemenu;
     private PauseMenu pause;
+    private AudioSource audiosource;
+    public AudioClip walkingsound;
+    private bool playingsound;
+    public GameObject darkmusic;
+    private AudioSource darkmusicaudio;
     
 
 
@@ -59,6 +65,8 @@ public class PlayerScript : MonoBehaviour
         character = gameObject.GetComponent<CharacterController>();
         gamecontroller = game.GetComponent<GameController>();
         pause = pausemenu.GetComponent<PauseMenu>();
+        audiosource = gameObject.GetComponent<AudioSource>();
+        darkmusicaudio = darkmusic.GetComponent<AudioSource>();
         //key = GameObject.FindWithTag("Key");
         //k = key.GetComponent<KeyScript>();
         //puts cursor in center of screen and so you cant see it
@@ -72,6 +80,9 @@ public class PlayerScript : MonoBehaviour
         pressEtoopen.SetActive(false);
         needkey.SetActive(false);
         issafe = false;
+        playingsound = false;
+        darkmusicaudio.Play();
+        isdead = false;
         
     }
 
@@ -96,11 +107,24 @@ public class PlayerScript : MonoBehaviour
             move = playercontroller.ReadValue<Vector3>();
             buttonsouthpress = playerpickup.IsPressed();
             Look();
+            if (movement.x > 0.0f || movement.z > 0.0f ) {
+                if (playingsound == false) {
+                    PlaySound(walkingsound);
+                    playingsound = true;
+                }
+            }
+            else {
+                audiosource.Stop();
+                playingsound = false;
+            }
         }
         if (gamecontroller.gameover == true || gamecontroller.gamewin == true)
         {
             speed = 0.0f;
+            isdead = true;
             buttoneastpress = playercancel.IsPressed();
+            audiosource.Stop();
+            darkmusicaudio.Stop();
             if (buttoneastpress) {
                 SceneManager.LoadScene("Final Level");
                 gamecontroller.gameover = false;
@@ -256,5 +280,8 @@ public class PlayerScript : MonoBehaviour
         }
    }
 
+public void PlaySound(AudioClip clip) {
+    audiosource.PlayOneShot(clip);
+}
 
 }

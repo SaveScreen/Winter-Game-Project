@@ -6,12 +6,22 @@ public class FireScript : MonoBehaviour
 {
     private PlayerScript p;
     private GameObject player;
+    private AudioSource audiosource;
     // Start is called before the first frame update
     void Start()
     {
        player = GameObject.FindWithTag("Player");
-        //p = player.GetComponent<PlayerScript>();
+       p = player.GetComponent<PlayerScript>();
+       audiosource = gameObject.GetComponent<AudioSource>();
+       
     }
+
+    void Update() {
+        if (p.isdead == true) {
+            audiosource.Stop();
+        }
+    }
+
 
     void OnTriggerEnter(Collider other) {
         p = other.gameObject.GetComponent<PlayerScript>();
@@ -26,4 +36,5 @@ public class FireScript : MonoBehaviour
             p.issafe = false;
         }
     }
+
 }

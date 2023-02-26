@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 
 public class PauseMenu : MonoBehaviour
 {
-    public static bool GameIsPaused = false;
+    public bool GameIsPaused = false;
     public bool gamepaused;
     public GameObject pauseMenuUI;
     public InputAction startbutton;

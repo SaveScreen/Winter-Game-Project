@@ -133,7 +133,7 @@ Transform:
   - {fileID: 7891900024648026773}
   - {fileID: 446723102}
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &6746616173596315968
 MeshFilter:
@@ -254,7 +254,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -306,7 +306,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a559f0668fb17943aec2a0041f18bae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fire: {fileID: 0}
 --- !u!1 &7891900024023290707
 GameObject:
   m_ObjectHideFlags: 0

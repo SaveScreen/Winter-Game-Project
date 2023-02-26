@@ -45,11 +45,11 @@ public class PlayerScript : MonoBehaviour
     public GameObject game;
     private GameController gamecontroller;
     public GameObject enemy;
-    //public GameObject winplane;
     private EnemyScript e;
     public bool issafe;
     public GameObject needkey;
     public GameObject pausemenu;
+    private PauseMenu pause;
     private AudioSource audiosource;
     public AudioClip walkingsound;
     private bool playingsound;
@@ -64,7 +64,7 @@ public class PlayerScript : MonoBehaviour
     {
         character = gameObject.GetComponent<CharacterController>();
         gamecontroller = game.GetComponent<GameController>();
-        
+        pause = pausemenu.GetComponent<PauseMenu>();
         audiosource = gameObject.GetComponent<AudioSource>();
         darkmusicaudio = darkmusic.GetComponent<AudioSource>();
         //key = GameObject.FindWithTag("Key");
@@ -114,6 +114,11 @@ public class PlayerScript : MonoBehaviour
                 }
             }
             else {
+                audiosource.Stop();
+                playingsound = false;
+            }
+
+            if (pause.gamepaused == true) {
                 audiosource.Stop();
                 playingsound = false;
             }
